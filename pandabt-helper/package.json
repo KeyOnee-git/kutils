@@ -1,14 +1,24 @@
 {
-  "name": "pandabt-helper",
+  	"name": "pandabt-helper",
 	"displayName": "PandaBT Helper",
 	"description": "panda behavior tree helper",
+	"publisher": "KeyOnee",
+	"author": {
+		"name": "KeyOnee",
+		"email": "keyonee.git@gmail.com"
+	},
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.67.0"
 	},
 	"categories": [
-		"Other"
+		"Programming Languages",
+		"Formatters"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/KeyOnee-git/vscode-pandabt-extension.git"
+	},
 	"activationEvents": [
         "onCommand:pandabt-helper.helloWorld"
 	],
