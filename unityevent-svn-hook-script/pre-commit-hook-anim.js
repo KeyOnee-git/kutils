@@ -74,9 +74,9 @@ function main(){
 		//여기 오면 _animFileList에 작업 할 파일 리스트가 들어 있음.
 		
 		// # 2. 로그에서 키워드 확인. 
-		var ignoreAnim = false;
-		if(IsContains(_commitLog, '[IA]') == true) {
-			ignoreAnim = true;
+		var overwriteAnim = false;
+		if(IsContains(_commitLog, '[OA]') == true) {
+			overwriteAnim = true;
 		}
 		
 		// # 3. 작업할 폴더 준비.		
@@ -85,7 +85,7 @@ function main(){
 		
 		// # 4. AnimFile 합치기.
 		for(var i=0; i < _animFileList.length; i++){
-			MergeAnimFile(_animFileList[i], ignoreAnim);
+			MergeAnimFile(_animFileList[i], overwriteAnim);
 		}
 		
 		ExecuteCmd('rmdir /S /Q ' + _tempForder);
@@ -105,7 +105,7 @@ function main(){
 
 // # Core Method
 
-function MergeAnimFile(path, ignoreAnim) {
+function MergeAnimFile(path, overwriteAnim) {
 	// # Desc: 이전 버전 받아서 그 버전에 들어있는 m_Events: 의 아랫부분을 다 복사해서 현재 파일의 m_Events: 부분에(없다면 파일 제일 밑에) 추가해 줘야함.
 	//
 	// # 지금 해당 파일은 이미 작업이 되어 버렸으니 이전 버전을 export 받아서 비교해서 만들어야 함. 
@@ -164,7 +164,7 @@ function MergeAnimFile(path, ignoreAnim) {
     }
     //#endregion
 	
-	if( isNoEvent && ignoreAnim == false) {
+	if( isNoEvent && overwriteAnim == false) {
 		finalFileContext = newAnimFileContext + oldFileEventContext;
 
         //#region Debug
