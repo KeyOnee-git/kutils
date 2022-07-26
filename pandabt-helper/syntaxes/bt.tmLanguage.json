@@ -1,0 +1,191 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "BT",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#trees"
+		},
+		{
+			"include": "#nodes"
+		},
+		{
+			"include": "#controls"
+		},
+		{
+			"include": "#decorators"
+		},
+		{
+			"include": "#btc-cores"
+		},
+		{
+			"include": "#btcs"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		}
+	],
+	"repository": {
+		"trees": {
+			"patterns": [{
+				"name": "panda.bt.tree",
+				"match": "\\b(tree)\\b"
+			}]
+		},
+		"nodes": {
+			"patterns": [{
+				"name": "panda.bt.node",
+				"match": "\\b(sequence|fallback|parallel|race)\\b"
+			}]
+		},
+		"controls": {
+			"patterns": [{
+				"name": "panda.bt.control",
+				"match": "\\b(while|repeat|random)\\b"
+			}]
+		},
+		"decorators": {
+			"patterns": [{
+				"name": "panda.bt.decorator",
+				"match": "\\b(not|mute)\\b"
+			}]
+		},
+		"btc-cores": {
+			"patterns": [
+				{ "include": "#btc-core" },
+				{ "include": "#btc-core2" }
+			]
+		},
+		"btc-core": {
+			"patterns": [
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(Succeed|Fail|Running|Wait)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(HaltBT|Log|Pause|Break|KillSelf|IsAlive|IsGround|IsInitialized|SetInitialized|IsHit|ClearHitCount|SetMovementState|GetMovementState|IsMovementState)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(IsHitBySkillType|IsHitByInteractionType|WaitKnockbackTime|SetValue|GetValue|IsValue)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(GetBuffSelf|HasBuffSelf|AddBuffSelf|RemoveBuffSelf|GetInteractionType)\\b"
+				}
+			]
+		},
+		"btc-core2": {
+			"patterns": [
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(PlayFeedbacks|PlayFeedbacksWait)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(SetAnimationParameter|CheckCurrentAnimatorState)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(IsTargetPlayer|IsPlayerInRange|IsPlayerInArc|IsTargetInArc|IsLastHitAngleBetween180)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(SetTarget_Null|SetTarget_Player|SetTarget_LastHitCharacter|HasTarget)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(SetActive|ShowModel|SetCharacterController)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(MoveTowardTargetNM|StopNavMeshAgent|MoveForward|MoveTowardTarget|MoveAwayFromTarget|MoveStrafe|StopForceMove)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(RotateTowardTarget|RotateTowardTargetLerp|RotateTowardTargetSlerp|RotateSelf)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(SetRandomPositionAroundPlayer|ShootSkill|SetAnimatorSpeed)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc.core",
+					"match": "\\b(ChangeForwardToPlayerForward|ChangeForwardToTargetForward|ChangeForwardToLastHitCharacterDirection|ChangeForwardToLastHitDirection|ChangeForwardToLastHitReflection|ChangeForwardToLastHitMovementVector)\\b"
+				}
+		]
+		},
+		"btcs": {
+			"patterns": [
+				{ "include": "#btc-baller" },
+				{ "include": "#btc-peeko" }
+			]
+		},
+		"btc-baller": {
+			"patterns": [
+				{
+				"name": "panda.bt.behaivors.btc",
+				"match": "\\b(IsCollided|ClearCollide|Rushing|IsRushing|SetRushing|ResetBounceCount|HasBounceCount|DecBounceCount)\\b"
+				},
+				{
+					"name": "panda.bt.behaivors.btc",
+					"match": "\\b(ChangeForwardToReflection|HandleWasBlowed|HandleRushEnd)\\b"
+				}
+			]
+		},
+		"btc-peeko": {
+			"patterns": [
+				{
+					"name": "panda.bt.behaivors.btc",
+					"match": "\\b(Burning)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.bt",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.bt",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.whitespace.comment.leading.bt"
+				},
+				"2": {
+					"name": "comment.line.double-slash.bt"
+				},
+				"3": {
+					"name": "punctuation.definition.comment.bt"
+				},
+				"4": {
+					"name": "storage.type.bt"
+				},
+				"5": {
+					"name": "punctuation.decorator.bt"
+				}
+			},
+			"end": "(?=^)",
+			"contentName": "comment.line.double-slash.bt"
+		},
+		"numbers": {
+			"patterns": [{
+				"name":"constant.numeric.bt",
+				"match": "(^-?[0-9]*\\.?[0-9]+$)"
+			}]
+		}
+	},
+	"scopeName": "source.bt"
+}

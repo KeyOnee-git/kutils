@@ -20,7 +20,9 @@
 		"url": "https://github.com/KeyOnee-git/vscode-pandabt-extension.git"
 	},
 	"activationEvents": [
-        "onCommand:pandabt-helper.helloWorld"
+        "onCommand:pandabt-helper.helloWorld",
+		"onCommand:pandabt-helper.testSetting",
+		"onCommand:pandabt-helper.updateConfig"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -28,8 +30,81 @@
 			{
 				"command": "pandabt-helper.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "pandabt-helper.testSetting",
+				"title": "KeyOnee TestSetting"
+			},
+			{
+				"command": "pandabt-helper.updateConfig",
+				"title": "KeyOnee updateConfig"
 			}
-		]
+		],
+		"configuration":{
+			"title": "PandaBT-Helper",
+			"properties": {
+				"pandabt-helper.b1": {
+					"type":"boolean",
+					"scope": "window",
+					"default":false,
+					"description": "Alah Blah Clah"
+				},
+				"pandabt-helper.lol": {
+					"type":"string",
+					"scope": "window",
+					"default":"Shaco",
+					"description": "my first lol character was singed??"
+				},
+				"pandabt-helper.settings": {
+					"type":"object",
+					"scope": "window",
+					"default": { 
+						"keyword": {
+							 "node":"\\b(sequence|fallback|parallel|race)\\b", 
+							 "control":"\\b(while|repeat|random)\\b",
+							 "decorator":"\\b(not|mute)\\b",
+							 "custom":{
+								 "btc.core":"",
+								 "btc":""								 
+							 }
+						}
+					},
+					"description": "set config to settings.json"
+				},
+				"pandabt-helper.tmConfig.keyword.tree": {
+					"type":"string",
+					"scope": "window",
+					"default":"tree",
+					"description": "tree keywords"
+				},
+				"pandabt-helper.tmConfig.keyword.control": {
+					"type":"string",
+					"scope": "window",
+					"default":"sequence fallback",
+					"description": "control keywords"
+				}
+			}
+		},
+		"languages": [
+            {
+                "id": "bt",
+                "aliases": [
+                    "BT",
+                    "bt"
+                ],
+                "extensions": [
+                    ".txt"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "bt",
+                "scopeName": "source.bt",
+                "path": "./syntaxes/bt.tmLanguage.json"
+            }
+        ]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
