@@ -88,10 +88,10 @@
 		},
 		"languages": [
             {
-                "id": "bt",
+                "id": "pandabt",
                 "aliases": [
-                    "BT",
-                    "bt"
+                    "PandaBT",
+                    "pandabt"
                 ],
                 "extensions": [
                     ".txt"
@@ -101,9 +101,9 @@
         ],
         "grammars": [
             {
-                "language": "bt",
-                "scopeName": "source.bt",
-                "path": "./syntaxes/bt.tmLanguage.json"
+                "language": "pandabt",
+                "scopeName": "source.pandabt",
+                "path": "./syntaxes/pandabt.tmLanguage.json"
             }
         ]
 	},

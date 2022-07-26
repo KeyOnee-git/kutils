@@ -71,7 +71,7 @@ export function activate(context: vscode.ExtensionContext) {
 		console.log('revertSetting', JSON.stringify(defaultSettings, null, 1));
 		let strVersion = defaultSettings[0]["pandabt-helper.version"];
 		await udpateUserSettings(defaultSettings);
-		await vscode.window.showInformationMessage(`setting.json reverted  to default version(${strVersion}()`);
+		await vscode.window.showInformationMessage(`setting.json reverted  to default version(${strVersion})`);
 	});
 
 	context.subscriptions.push(disposable2);

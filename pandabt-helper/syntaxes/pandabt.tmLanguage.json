@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "BT",
+	"name": "pandabt",
 	"patterns": [
 		{
 			"include": "#comments"
@@ -148,12 +148,12 @@
 			]
 		},
 		"strings": {
-			"name": "string.quoted.double.bt",
+			"name": "string.quoted.double.pandabt",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.bt",
+					"name": "constant.character.escape.pandabt",
 					"match": "\\\\."
 				}
 			]
@@ -162,30 +162,30 @@
 			"begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
 			"beginCaptures": {
 				"1": {
-					"name": "punctuation.whitespace.comment.leading.bt"
+					"name": "punctuation.whitespace.comment.leading.pandabt"
 				},
 				"2": {
-					"name": "comment.line.double-slash.bt"
+					"name": "comment.line.double-slash.pandabt"
 				},
 				"3": {
-					"name": "punctuation.definition.comment.bt"
+					"name": "punctuation.definition.comment.pandabt"
 				},
 				"4": {
-					"name": "storage.type.bt"
+					"name": "storage.type.pandabt"
 				},
 				"5": {
-					"name": "punctuation.decorator.bt"
+					"name": "punctuation.decorator.pandabt"
 				}
 			},
 			"end": "(?=^)",
-			"contentName": "comment.line.double-slash.bt"
+			"contentName": "comment.line.double-slash.pandabt"
 		},
 		"numbers": {
 			"patterns": [{
-				"name":"constant.numeric.bt",
+				"name":"constant.numeric.pandabt",
 				"match": "(^-?[0-9]*\\.?[0-9]+$)"
 			}]
 		}
 	},
-	"scopeName": "source.bt"
+	"scopeName": "source.pandabt"
 }
