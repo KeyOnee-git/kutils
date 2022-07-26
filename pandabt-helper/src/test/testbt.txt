@@ -13,4 +13,4 @@ tree("ABC")
 
 tree("EFGH")
     while Succeed
-        Fail
+        Faily
