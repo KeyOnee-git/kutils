@@ -1,0 +1,2 @@
+* http://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts/
+- http://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts/client-side/
