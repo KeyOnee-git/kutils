@@ -1,6 +1,7 @@
 import { GeneralObject } from "./koutil";
 
 export const defaultSettings = [
+  { "pandabt-helper.version": "0.0.1" },
   { "editor.tokenColorCustomizations": {       
     "textMateRules": [
         {
@@ -45,5 +46,4 @@ export const defaultSettings = [
     ]        
     } 
   },
-  { "pandabt-helper.comment": "G" },
 ] as GeneralObject[];

@@ -22,38 +22,39 @@
 	"activationEvents": [
         "onCommand:pandabt-helper.helloWorld",
 		"onCommand:pandabt-helper.testSetting",
-		"onCommand:pandabt-helper.updateConfig"
+
+		"onCommand:pandabt-helper.updateSetting",
+		"onCommand:pandabt-helper.revertSetting"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "pandabt-helper.helloWorld",
-				"title": "Hello World"
+				"title": "PandaBT-Helper: Hello World"
 			},
 			{
 				"command": "pandabt-helper.testSetting",
-				"title": "KeyOnee TestSetting"
+				"title": "PandaBT-Helper: TestSetting"
 			},
 			{
-				"command": "pandabt-helper.updateConfig",
-				"title": "KeyOnee updateConfig"
+				"command": "pandabt-helper.updateSetting",
+				"title": "PandaBT-Helper: Update settings.json"
+			},
+			{
+				"command": "pandabt-helper.revertSetting",
+				"title": "PandaBT-Helper: Revert settings.json to default"
 			}
 		],
 		"configuration":{
 			"title": "PandaBT-Helper",
 			"properties": {
-				"pandabt-helper.b1": {
-					"type":"boolean",
-					"scope": "window",
-					"default":false,
-					"description": "Alah Blah Clah"
-				},
-				"pandabt-helper.lol": {
+				"pandabt-helper.version": {
 					"type":"string",
 					"scope": "window",
-					"default":"Shaco",
-					"description": "my first lol character was singed??"
+					"order": 0,
+					"default":"0.0.1",
+					"enum": [ "0.0.1" ]
 				},
 				"pandabt-helper.settings": {
 					"type":"object",
@@ -71,17 +72,17 @@
 					},
 					"description": "set config to settings.json"
 				},
-				"pandabt-helper.tmConfig.keyword.tree": {
-					"type":"string",
+				"pandabt-helper.test.b1": {
+					"type":"boolean",
 					"scope": "window",
-					"default":"tree",
-					"description": "tree keywords"
+					"default":false,
+					"description": "Alah Blah Clah"
 				},
-				"pandabt-helper.tmConfig.keyword.control": {
+				"pandabt-helper.test.lol": {
 					"type":"string",
 					"scope": "window",
-					"default":"sequence fallback",
-					"description": "control keywords"
+					"default":"Shaco",
+					"description": "my first lol character was singed??"
 				}
 			}
 		},

@@ -1,0 +1,16 @@
+tree("root")
+    sequence not IsAlive
+        PlayFeedbacks("ABCD")
+        Wait(1.5)
+        tree("ABC")
+        tree("EFGH")
+    
+
+tree("ABC")
+    fallback
+        NotExistTask
+        
+
+tree("EFGH")
+    while Succeed
+        Fail
